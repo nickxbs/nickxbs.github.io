@@ -1,0 +1,1 @@
+final List<dynamic> styles = ['body,.cover\r\n{\r\n  background-color: #57bb8a;\r\n}\r\n'];

@@ -1,0 +1,21 @@
+<div class="title">{{monthName(date)}} {{date.year}}</div>
+<div class="weektitle">
+  <material-button *ngFor="let dow of month.weeks[0].days" class="btn" (trigger)="weekdayClicked(dow)"
+                   @i18n:title="title for button of weekdayname" title="Als ersten Tag der Woche festlegen">
+    {{dow.shortName}}
+  </material-button>
+</div>
+<div class="month infoarea">
+  <div class="infotext">In diesem Bereich werden die einzelnen Tage des Monats angezeigt</div>
+    <div class="week" *ngFor="let week of month.weeks">
+    <material-button *ngFor="let day of week.days" [class]="dayclass(day)" [disabled]="!day.isEnabled"
+                     [raised]="day.isRaised" (trigger)="dayClicked(day)">{{day.day}}
+    </material-button>
+  </div>
+  <div class="weekmarks">
+    <material-button *ngFor="let dow of month.weeks[0].days" [class]="dowmark(dow.date.weekday-1)"
+                     (trigger)="period.activateDow(dow.date.weekday-1, !period.isDowActive(dow.date.weekday-1))">
+      <material-icon [icon]="period.isDowActive(dow.date.weekday-1)?'done':'close'"></material-icon>
+    </material-button>
+  </div>
+</div>

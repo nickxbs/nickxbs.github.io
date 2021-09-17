@@ -1,0 +1,296 @@
+@import '../colors.sass';
+@import '../base';
+@import '../controls/signin/mixins';
+@import 'package:angular_components/material_dialog/mixins';
+@import 'package:angular_components/material_slider/mixins';
+@import 'package:angular_components/material_select/mixins';
+@import 'package:angular_components/material_checkbox/mixins';
+
+:host {
+}
+
+material-slider {
+  width: 100%;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+// this mixin is neccessary since the original uses transparantize, which doesn't work with variables
+@mixin nr-slider-thumb-color($selector, $fore, $back) {
+  ::ng-deep #{$selector} .knob-real,
+  ::ng-deep #{$selector} .is-dragging.knob-drag-shadow {
+    background-color: $fore;
+  }
+
+  ::ng-deep #{$selector} .knob:focus,
+  ::ng-deep #{$selector} .knob:hover {
+    .knob-hover-shadow {
+      background-color: $back;
+    }
+  }
+}
+@include nr-slider-thumb-color("material-slider.maxsize", var(--settingsHeaderBack), var(--settingsHeaderFore));
+@include slider-track-color("material-slider.maxsize", var(--settingsHeaderBack) !important, var(--settingsHeaderFore) !important);
+@include material-checkbox-color(var(--settingsHeaderBack), $modifier: '');
+@include material-select-selected-item-color(var(--settingsHeaderBack));
+@include material-select-selected-color(var(--settingHeaderFore));
+
+.themeSelect {
+  ::ng-deep material-list {
+    background: var(--settingsBodyBack);
+    padding: 0;
+
+    material-select-item {
+      display: flex;
+      flex-direction: column;
+      line-height: initial;
+      align-items: flex-start;
+      padding: 0.2em 0.5em;
+      color: var(--settingsBodyFore);
+
+      div.itemSub {
+        font-size: 75%;
+      }
+
+      .selected-accent {
+        background-color: var(--settingsHeaderBack);
+      }
+    }
+
+    material-select-item.selected {
+      background-color: var(--settingsHeaderBack);
+      color: var(--settingsHeaderFore);
+    }
+  }
+}
+
+.datepicker-row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.datepicker-row label {
+  position: absolute;
+  top: -15px;
+  color: rgba(0, 0, 0, 0.541176);
+  font-size: 12px;
+}
+
+.userinfo {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+
+  material-input {
+    flex-shrink: 0;
+    flex-grow: 1;
+  }
+}
+
+.controls {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  min-width: 7em;
+
+  .label {
+    padding-right: 2em;
+  }
+
+  material-fab:not([disabled]) {
+    background-color: var(--settingsHeaderBack);
+    color: var(--primaryFore);
+  }
+}
+
+.urlPanel {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+
+  material-input {
+    flex-shrink: 0;
+    flex-grow: 1;
+  }
+
+  material-button:not([disabled]) .urlIcon {
+    color: var(--settingsHeaderBack);
+  }
+}
+
+.functions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+material-dialog[main] {
+  min-width: 80%;
+
+  ::ng-deep main::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  ::ng-deep main::-webkit-scrollbar-track {
+    background-color: var(--settingsBodyBack);
+  }
+
+  ::ng-deep main::-webkit-scrollbar-thumb {
+    background-color: var(--settingsScrollThumb);
+  }
+
+  ::ng-deep main {
+    scrollbar-color: var(--settingsScrollThumb) var(--settingsBodyBack);
+  }
+
+  @include material-dialog-header-shadow();
+  @include material-dialog-body-padding(0);
+}
+
+material-dialog.headered-dialog {
+  @include material-dialog-header-color(var(--settingsHeaderBack));
+
+  ::ng-deep .wrapper > footer,
+  &[headered] ::ng-deep .wrapper > footer {
+    background-color: var(--settingsHeaderBack);
+    color: var(--settingsHeaderFore);
+    padding: 0;
+  }
+
+  &[headered] ::ng-deep .wrapper ::ng-deep h1 {
+    background-color: var(--settingsHeaderBack);
+    color: var(--settingsHeaderFore);
+  }
+}
+
+.root {
+  padding: 1em;
+  font-size: 1.2em;
+  color: var(--settingsBodyFore);
+  background-color: var(--settingsBodyBack);
+}
+
+.languagePanel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.subtitle {
+  display: flex;
+  flex-direction: row;
+  color: var(--settingsHeaderBack);
+  font-size: 1.5em;
+  padding-bottom: 0.5em;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div[header] {
+  display: flex;
+  flex-direction: row;
+  color: var(--settingsHeaderFore);
+  justify-content: space-between;
+  align-items: center;
+
+  div:nth-child(2) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+div[footer] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+}
+
+.error {
+  color: $mat-red-500;
+  padding-bottom: 1em;
+}
+
+.progress {
+  padding: 2em;
+  font-size: 1.2em;
+}
+
+.date {
+  width: 6em;
+  flex-grow: 0 !important;
+}
+
+material-dialog[confirm] {
+  background-color: var(--settingsBodyBack);
+  color: var(--settingsBodyFore);
+
+  .content {
+    font-size: 120%;
+    padding: 2em;
+
+    .marked {
+      padding: 1em 0;
+      font-weight: bold;
+    }
+  }
+}
+
+login {
+  @include signin_button_background($mat-red-900);
+}
+
+.pdfSliderHead {
+  display: flex;
+  width: 90%;
+  padding: 1em;
+}
+
+.sub {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  text-align: justify;
+}
+
+.pdfSlider {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1em;
+  margin-bottom: 2em;
+
+  > div {
+    width: 5%;
+  }
+}
+
+material-input {
+  ::ng-deep .focused-underline {
+    background: var(--settingsHeaderBack);
+  }
+
+  ::ng-deep .focused.label-text {
+    color: var(--settingsHeaderBack);
+  }
+}
+
+material-fab.is-local, div.is-local, material-button.is-local {
+  background: var(--localBack) !important;
+  color: var(--localFore) !important;
+}
+
+.navControls {
+  display: flex;
+  align-items: center;
+  font-size: 0.7em;
+}
+
+#exportForm {
+  display: none;
+}
+
+#importData {
+  display: none;
+}

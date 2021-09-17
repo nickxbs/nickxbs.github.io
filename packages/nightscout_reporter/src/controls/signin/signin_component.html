@@ -1,0 +1,19 @@
+<material-button *ngIf="!showFab && !showMenuButton" [raised]="raised" [disabled]="isBusy" (trigger)="btnLoginClick()"
+                 [style.display]="isVisible?'':'none'">
+  <material-icon [icon]="isAuthorized?'sync':'sync_disabled'"></material-icon>
+  {{isBusy ? msgBusy : isAuthorized ? msgConnected : msgDisconnected}}
+</material-button>
+<material-fab *ngIf="showFab" mini [raised]="raised" [disabled]="isBusy" (trigger)="btnLoginClick()"
+              [class]="isAuthorized?'authorized':''"
+              [style.display]="isVisible?'':'none'" [title]="isAuthorized?msgTitleAuthorized:msgTitleNotAuthorized">
+  <svg *ngIf="false" [style.opacity]="isAuthorized ? 1.0 : 1.0" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet"
+       focusable="false" class="google">
+    <use xlink:href="#google" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+  </svg>
+  <material-icon [icon]="isAuthorized?'sync':'sync_disabled'"></material-icon>
+</material-fab>
+<material-button *ngIf="showMenuButton" class="iconButton material-drawer-button"
+                 (trigger)="btnLoginClick()">
+  <material-icon [icon]="isAuthorized?'sync':'sync_disabled'"></material-icon>
+  {{isBusy ? msgBusy : isAuthorized ? msgMenuConnected : msgMenuNotConnected}}
+</material-button>

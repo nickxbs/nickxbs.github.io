@@ -1,0 +1,160 @@
+body {
+  --primaryBack: #055524;
+  --primaryFore: white;
+  --secondaryBack: #57bb8a;
+  --secondaryFore: black;
+  --debugFirst: #220;
+  --debugSecond: #550;
+  --debugFore: #ffeb3b;
+  --settingsHeaderBack: #006064;
+  --settingsHeaderFore: #b2ebf2;
+  --settingsBodyBack: #4dd0e1;
+  --settingsBodyFore: black;
+  --settingsScrollThumb: #0097a7;
+  --legalHeaderBack: #e65100;
+  --legalHeaderFore: #ffe0b2;
+  --legalBodyBack: #ffb74d;
+  --legalBodyFore: black;
+  --legalScrollThumb: #f57c00;
+  --whatsnewHeaderBack: blue900;
+  --whatsnewHeaderFore: blue100;
+  --whatsnewBodyBack: blue500;
+  --whatsnewBodyFore: black;
+  --whatsnewScrollThumb: blue700;
+  --localFore: purple500;
+  --localBack: purple100;
+  --betaFore: green800;
+  --betaBack: transparent;
+  --pdfBtnBack: red400;
+  --pdfBtnFore: rgba(255, 255, 255, 0.8);
+  --pdfInfoFore: rgba(0, 0, 0, 0.7);
+  --sendMarked: lightBlue800;
+  --googleSignedout: red400;
+  --loopMarked: #a0a0ff;
+  --printparamsHeaderBack: #b71c1c;
+  --printparamsHeaderFore: #ffcdd2;
+  --printparamsBodyBack: #e57373;
+  --printparamsBodyFore: black;
+  --printparamsScrollThumb: #d32f2f;
+  --shortcutHeaderBack: #afb42b;
+  --shortcutHeaderFore: #afb42b;
+  --shortcutBodyBack: #afb42b;
+  --shortcutBodyFore: #afb42b;
+  --shortcutScrollThumb: #ff0000;
+}
+
+.betaBox {
+  box-shadow: 0 0 10px 3px #00ffff;
+}
+
+.betaText {
+  animation: glowing 1s linear infinite alternate;
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 0px;
+  }
+  100% {
+    text-shadow: 0 0 30px;
+  }
+}
+.iconButton material-icon,
+.iconButton img {
+  margin-right: 1em;
+}
+
+.imageButton img {
+  height: 16px;
+  margin-right: 1em;
+}
+
+material-dialog ::ng-deep main::-webkit-scrollbar {
+  width: 16px;
+}
+material-dialog ::ng-deep main::-webkit-scrollbar-track {
+  background-color: var(--whatsnewBodyBack);
+}
+material-dialog ::ng-deep main::-webkit-scrollbar-thumb {
+  background-color: var(--whatsnewScrollThumb);
+}
+material-dialog ::ng-deep main {
+  scrollbar-color: var(--whatsnewScrollThumb) var(--whatsnewBodyBack);
+}
+material-dialog ::ng-deep .wrapper > header, material-dialog[headered] ::ng-deep .wrapper > header {
+  background-color: var(--whatsnewHeaderBack);
+}
+material-dialog ::ng-deep .wrapper > header {
+  /*! @noflip */
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+material-dialog ::ng-deep .wrapper > main, material-dialog[headered] ::ng-deep .wrapper > main {
+  padding: 0;
+}
+
+material-dialog.headered-dialog ::ng-deep .wrapper > header, material-dialog.headered-dialog[headered] ::ng-deep .wrapper > header {
+  background-color: var(--whatsnewHeaderBack);
+}
+material-dialog.headered-dialog ::ng-deep h1 {
+  color: var(--whatsnewHeaderFore) !important;
+}
+
+div[header] {
+  display: flex;
+  flex-direction: row;
+  color: var(--whatsnewHeaderFore);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.root {
+  padding: 1em;
+  font-size: 1.2em;
+  background-color: var(--whatsnewBodyBack);
+  color: var(--whatsnewBodyFore);
+}
+
+h2 {
+  font-size: 1.3em;
+  padding: 0 0.5em;
+}
+h2 span:first-child {
+  padding-right: 0.5em;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 1em 0 1.5em 0;
+}
+
+li {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 2em;
+  text-indent: -0.6em;
+}
+
+li:before {
+  content: "-";
+  margin-right: 1em;
+  margin-left: -1em;
+}
+
+.added:before {
+  content: "+";
+}
+
+.changed:before {
+  content: "~";
+}
+
+.removed:before {
+  content: "-";
+  margin-right: 1.34em;
+}
+
+.fixed:before {
+  content: "#";
+}

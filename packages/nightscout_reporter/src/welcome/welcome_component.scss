@@ -1,0 +1,99 @@
+@import '../colors';
+@import '../base';
+@import 'package:angular_components/material_dialog/mixins';
+
+:host {
+  ::-webkit-scrollbar {
+    width: auto;
+  }
+
+  ::ng-deep main::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  ::ng-deep main::-webkit-scrollbar-track {
+    background-color: var(--secondaryBack);
+  }
+
+  ::ng-deep main::-webkit-scrollbar-thumb {
+    background-color: var(--primaryBack);
+  }
+
+  ::ng-deep main {
+    scrollbar-color: var(--primaryBack) var(--secondaryBack);
+  }
+}
+
+material-dialog {
+  @include material-dialog-header-color(var(--primaryBack));
+  @include material-dialog-header-shadow();
+  @include material-dialog-body-padding(0);
+}
+
+div[header] {
+  display: flex;
+  flex-direction: row;
+  color: var(--primaryFore);
+  justify-content: space-between;
+  align-items: center;
+
+  > div {
+    .langPanel {
+      display: flex;
+      flex-direction: row;
+      align-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media(max-width: 33em) {
+  div[header] {
+    flex-direction: column !important;
+  }
+}
+
+.root {
+  padding: 1em;
+  font-size: 1.2em;
+  background-color: var(--secondaryBack);
+}
+
+h1 {
+  margin-top: 0em;
+  margin-bottom: 0.5em;
+}
+
+.root > div {
+  text-align: justify;
+  padding-top: 1.0em;
+}
+
+a, a:visited, a:active {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--primaryBack);
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+

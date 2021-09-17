@@ -1,0 +1,1447 @@
+@import 'src/colors.sass';
+@import 'src/base';
+@import 'package:angular_components/material_button/mixins';
+@import 'package:angular_components/material_toggle/mixins';
+@import 'package:angular_components/material_list/mixins';
+@import 'package:angular_components/material_expansionpanel/mixins';
+@import 'package:angular_components/material_checkbox/mixins';
+@import 'package:angular_components/material_select/mixins';
+@import 'package:angular_components/material_slider/mixins';
+@import 'package:angular_components/app_layout/mixins';
+@import 'package:angular_components/material_progress/mixins';
+@import 'src/controls/datepicker/mixins';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  width: 100vw;
+  height: 100vh;
+  @include material-checkbox-color(var(--primaryBack), $modifier: '');
+  @include material-checkbox-color(var(--localBack), $modifier: '.is-local');
+  @include slider-thumb-color('material-slider.slider', $primary_back);
+  @include slider-track-color('material-slider.slider', $primary_back, $mat-gray-400);
+  @include material-progress-theme(var(--primaryBack), var(--primaryBack), var(--primaryFore));
+
+  ::-webkit-scrollbar {
+    width: auto;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--secondaryBack);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--primaryBack);
+  }
+}
+
+header.material-header {
+  background-color: var(--primaryBack);
+}
+
+header.material-header.debug {
+  color: var(--debugFore) !important;
+  text-shadow: -1px 0 $debug_shadow, 0 1px $debug_shadow, 1px 0 $debug_shadow, 0 -1px $debug_shadow;
+  background: $debug_back;
+}
+
+header.material-header .material-header-title {
+  position: initial;
+  display: flex;
+  height: initial;
+  align-items: center;
+
+  .title {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+    > div {
+      flex-direction: row;
+    }
+
+    .versionText {
+      font-size: 50%;
+      color: white;
+      opacity: 0.5;
+      margin-left: -10px;
+      margin-top: 3px;
+      min-width: 0 !important;
+
+      ::ng-deep .content {
+        padding: 0 1em !important;
+      }
+    }
+  }
+
+}
+
+header.material-header .material-header-row {
+  justify-content: space-between;
+}
+
+#app-content {
+  background-color: var(--secondaryBack);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.icon-menu {
+
+}
+
+.icon-shortcut {
+  color: var(--shortcutBodyBack);
+}
+
+material-content.main {
+  min-height: unset !important;
+  display: flex !important;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: scroll;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  scrollbar-color: var(--primaryBack) var(--secondaryBack);
+
+}
+
+> div.centered {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.tileparams {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 0.5em;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  flex: 1;
+  padding: 0.5em;
+  align-self: center;
+  margin: 1em 0;
+
+  [title] {
+    background-color: var(--primaryBack);
+    color: var(--primaryFore);
+    padding: 0 0 0 1em;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    align-self: stretch;
+    border-radius: 0.5em;
+    margin-bottom: 0.5em;
+
+    material-button {
+      min-width: 32px;
+    }
+  }
+
+  [parampanel] {
+    display: flex;
+    flex: 1;
+    flex-basis: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+    flex-direction: column;
+
+    [paramtitle] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5em;
+      border: 1px solid black;
+      border-radius: 0.5em;
+      margin: 0.5em;
+    }
+
+    formparams {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-right: 0.5em;
+    }
+  }
+}
+
+material-button img {
+  width: 1.5em;
+}
+
+material-button svg {
+  width: 1.5em;
+}
+
+.info .controls {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+
+.menuControls,
+.menuLinks {
+  flex-direction: row;
+}
+
+.menuControls ::ng-deep .iconButton {
+  display: flex;
+  flex: 1;
+  text-align: left;
+}
+
+.iconButton material-icon[icon='open_in_new'] {
+  padding-left: 1em;
+  margin: 0;
+}
+
+.iconButton img, .iconButton svg, ::ng-deep .iconButton material-icon {
+  margin-right: 1em;
+}
+
+.formlist {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.pdfPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 6em 2em var(--primaryBack);
+  background: var(--secondaryBack);
+  padding: 0.5em;
+  border-radius: 0.5em;
+  position: relative;
+
+  .pdfClose {
+    position: absolute;
+    right: 0.2em;
+    top: 0.2em;
+  }
+
+  .pdfList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pdfList .pdfButton {
+    width: 4em;
+
+    .pdfButtonText {
+      font-size: 2em;
+    }
+  }
+
+  .pdfList .pdfButton, .pdfInfoPanel .pdfButton {
+    background: var(--pdfBtnBack);
+    color: var(--pdfBtnFore);
+    margin-bottom: 0.1em;
+
+    .pdfButtonText {
+      color: var(--pdfBtnFore);
+      font-weight: bold;
+    }
+  }
+
+  .pdfSizes {
+    display: flex;
+    font-size: 0.8em;
+    width: 90%;
+    justify-content: center;
+    margin: 0 0.3em;
+  }
+
+  .pdfInfo {
+    margin-top: 1em;
+    color: var(--pdfInfoFore);
+    background-color: transparent;
+    text-transform: none;
+  }
+
+  .pdfInfoPanel {
+    margin: 2em;
+    max-width: 60em;
+
+    .pdfSlider {
+      display: flex;
+      flex-direction: row;
+      width: 90%;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 1em;
+
+      > div {
+        width: 5%;
+      }
+
+      material-slider {
+        width: 100%;
+        margin-left: 2em;
+        margin-right: 2em;
+      }
+    }
+  }
+}
+
+.sendPanel:not(.is-tileview) {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+
+  material-fab {
+    margin-top: 0.5em;
+  }
+}
+
+.sendPanel.is-tileview {
+  flex-direction: row;
+  position: initial;
+  display: flex;
+  align-self: stretch;
+  justify-content: flex-end;
+  padding-top: 0.2em;
+  padding-bottom: 0.5em;
+
+  material-fab {
+    margin-top: 0;
+    margin-right: 0.5em;
+  }
+}
+
+.shift1, .shift2 {
+  background: var(--primaryBack);
+  color: var(--primaryFore);
+
+  ::ng-deep .content {
+    font-size: 50%;
+  }
+}
+
+.sendMarked {
+  background: var(--sendMarked) !important;
+}
+
+.shift1 {
+  opacity: 0.7;
+}
+
+.shift2 {
+  opacity: 0.5;
+}
+
+.send {
+  background: var(--primaryBack);
+  color: var(--primaryFore);
+}
+
+.stop {
+  background: $mat-red-500 !important;
+  color: $mat-white;
+}
+
+.close {
+  color: var(--primaryFore);
+}
+
+#messagePanel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-height: 30%;
+  z-index: 10001;
+  width: 100%;
+  display: flex;
+
+  ::-webkit-scrollbar-track {
+    background-color: $mat-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $mat-gray-700;
+  }
+}
+
+#message {
+  display: flex;
+  flex: 1;
+  padding: 0.5em;
+  background: $mat-black;
+  color: white;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  padding-right: 2em;
+
+  material-button:not(.msgClose) {
+    background-color: var(--primaryBack);
+    margin-bottom: 0.2em;
+  }
+
+  .msgClose {
+    position: absolute;
+    right: 0.8em;
+    top: 0.5em;
+  }
+}
+
+#postForm {
+  display: none;
+}
+
+.menuFabs {
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  div {
+    justify-content: space-evenly;
+  }
+
+  material-button {
+    background: $mat-green-400;
+    color: $mat-green-900;
+    margin: 0 1em;
+  }
+}
+
+.toggle-debug {
+  display: flex;
+  flex-direction: row;
+  color: var(--debugFore) !important;
+  text-shadow: -1px 0 $debug_shadow, 0 1px $debug_shadow, 1px 0 $debug_shadow, 0 -1px $debug_shadow;
+  background: $debug_back !important;
+  padding: 0.3em;
+  align-items: center;
+  @include material-toggle-theme($primary-color: var(--debugFore));
+}
+
+.noshadow {
+  color: $mat-white !important;
+  text-shadow: none !important;
+}
+
+.langPanel {
+  padding-left: 0.5em;
+  @include material-item-background($primary-back);
+  @include flat-material-list();
+  @include material-list-padding(0);
+}
+
+.legal {
+  font-size: 8pt;
+}
+
+.subtitle {
+  padding-top: 0.5em;
+  font-size: 50%;
+  opacity: 0.8;
+}
+
+.userName {
+  text-align: center;
+}
+
+material-fab.debug-trigger {
+  background: $debug_back !important;
+  color: $mat-white;
+}
+
+.themePanel {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0.75em;
+  left: 4em;
+  overflow: hidden;
+  align-items: center;
+  justify-content: flex-end;
+
+  .logo {
+    height: 90%;
+  }
+
+  .donation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffc439;
+    color: black;
+    height: 2em;
+    text-transform: none;
+    border-radius: 2em !important;
+  }
+}
+
+$theme-width: 15em;
+
+@keyframes showthemes {
+  0% {
+    width: 0;
+  }
+  10% {
+    width: 0;
+  }
+  90% {
+    width: calc(#{$theme-width} + 1em);
+  }
+  100% {
+    width: $theme-width;
+  }
+}
+
+@keyframes hidethemes {
+  0% {
+    width: $theme-width;
+  }
+  10% {
+    width: calc(#{$theme-width} + 1em);
+  }
+  90% {
+    width: 0;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes showthemeslogo {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-30deg);
+  }
+  90% {
+    transform: rotate(390deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hidethemeslogo {
+  0% {
+    transform: rotate(360deg);
+  }
+  10% {
+    transform: rotate(390deg);
+  }
+  90% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.owllogo {
+  position: fixed !important;
+  bottom: 0.5em;
+  left: 1em;
+
+  img {
+    height: 90%;
+  }
+}
+
+material-drawer {
+  .tabs {
+    display: flex;
+    flex-direction: row;
+
+    material-button {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      margin: 0;
+      border-radius: 0;
+    }
+
+    material-button.menu {
+      background-color: var(--primaryBack);
+      color: var(--primaryFore);
+    }
+
+    material-button.shortcuts {
+      background-color: var(--shortcutHeaderBack);
+      color: var(--shortcutHeaderFore);
+    }
+
+  }
+}
+
+.drawer-root {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: var(--primaryBack);
+  justify-content: space-between;
+  color: var(--primaryFore);
+  overflow-y: auto;
+}
+
+.shortcut-root {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: var(--shortcutHeaderBack);
+  color: var(--shortcutHeaderFore);
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0.5em;
+    overflow-y: auto;
+    height: 100%;
+
+    ::-webkit-scrollbar-track {
+      background-color: var(--secondaryBack);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--primaryBack);
+    }
+
+    material-button.add {
+      border-radius: 20px;
+    }
+
+    .shortcut:not(:hover) {
+      border: 1px solid transparent;
+    }
+
+    .shortcut:hover {
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 20px;
+    }
+
+    .active > material-button {
+      background: var(--shortcutHeaderFore) !important;
+      color: var(--shortcutHeaderBack) !important;
+    }
+
+    .shortcut {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      material-button {
+        display: flex;
+        min-width: initial;
+        margin: 0;
+        background: var(--shortcutBodyBack);
+        color: var(--shortcutBodyFore);
+        border-radius: 0;
+      }
+
+      material-button:first-child {
+        flex: 1;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+      }
+
+      material-button:not(:first-child) {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+
+      material-button.add {
+        border-radius: 20px;
+      }
+    }
+  }
+
+  material-fab {
+    white-space: nowrap;
+  }
+
+  material-button {
+    text-transform: none;
+  }
+
+  material-button:first-child material-icon {
+    margin-right: 0.5em;
+  }
+}
+
+signin {
+  ::ng-deep material-fab:not(.authorized) {
+    background: var(--googleSignedout) !important;
+  }
+}
+
+.betaTitle, .localTitle {
+  font-size: 50%;
+
+  ::ng-deep .content {
+    padding: 0 !important;
+  }
+}
+
+.localTitle {
+  color: var(--localBack);
+}
+
+.headerinfo {
+  position: absolute;
+  right: 2em;
+  top: 0em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.currLang {
+  background: var(--secondaryBack);
+}
+
+a {
+  cursor: pointer;
+}
+
+nav a:visited,
+nav a:active,
+nav a {
+  text-decoration: none;
+  font-size: 75%;
+  opacity: 0.5;
+  color: $mat-white;
+}
+
+.material-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.normal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.5em;
+  width: 100%;
+}
+
+.normal-content.is-tileview {
+  flex: 1;
+}
+
+@include material-select-selected-item-color(var(--primaryBack));
+@include material-select-selected-color(var(--primaryFore));
+
+.userSelect {
+  ::ng-deep material-list {
+    background: var(--secondaryBack);
+    padding: 0;
+
+    material-select-item {
+      display: flex;
+      flex-direction: column;
+      line-height: initial;
+      align-items: flex-start;
+      padding: 0.2em 0.5em;
+
+      div.itemSub {
+        font-size: 75%;
+      }
+
+      .selected-accent {
+        background-color: var(--primaryBack);
+      }
+    }
+
+    material-select-item.unreachable {
+      color: var(--primaryBack);
+      background-color: silver;
+    }
+  }
+}
+
+.paramSelect {
+  ::ng-deep material-list {
+    background: var(--secondaryBack);
+    padding: 0;
+
+    material-select-item {
+      display: flex;
+      flex-direction: column;
+      line-height: initial;
+      align-items: flex-start;
+      padding: 0.2em 0.5em;
+
+      .selected-accent {
+        background-color: var(--primaryBack);
+      }
+    }
+
+    material-select-item.selected {
+      background-color: var(--primaryBack);
+      color: var(--primaryFore);
+    }
+  }
+}
+
+material-dropdown-select {
+  ::ng-deep .button.border {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.paramList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  material-dropdown-select {
+    margin-left: 1em;
+    background: var(--primaryBack);
+    color: var(--primaryFore);
+
+    ::ng-deep .button {
+      padding: 0.5em;
+    }
+  }
+}
+
+.userPanel {
+  display: flex;
+  flex-direction: row;
+}
+
+@media(max-width: 50em) {
+  .title {
+    display: none !important;
+  }
+}
+
+.paramPanel {
+  @include expansionpanel-dense-theme;
+}
+
+.paramPanel ::ng-deep .content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+}
+
+material-expansionpanel {
+  display: flex;
+  flex-direction: column;
+  min-width: 20em;
+  max-width: 20em;
+  border: 2px solid transparent;
+  @include expansionpanel-colors(var(--secondaryBack), var(--secondaryFore));
+  @include expansionpanel-focused-colors(transparent, var(--secondaryFore));
+  @include expansionpanel-border-radius(0.5em);
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+
+  ::ng-deep div[buttondecorator] {
+    cursor: pointer !important;
+  }
+
+  ::ng-deep .header {
+    border: 2px solid transparent;
+    padding-left: 0;
+  }
+
+  ::ng-deep main:not(.hidden) {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 0.5em;
+    padding-top: 0.5em;
+  }
+
+  ::ng-deep div[aria-expanded="true"] {
+    border: 2px solid var(--primaryBack) !important;
+
+    ::ng-deep .header {
+      border: 0;
+      background-color: transparent;
+    }
+  }
+
+  [name] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+
+    > material-icon {
+      padding-left: 0.2em;
+      padding-right: 0.3em;
+      color: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+material-expansionpanel.checked {
+  ::ng-deep .header {
+    border: 2px solid var(--primaryBack);
+    border-radius: 0.5em;
+    font-weight: bold;
+  }
+
+  [name] {
+    > material-icon {
+      color: $primary_color;
+    }
+  }
+}
+
+material-button.is-local, div.is-local {
+  color: var(--localFore);
+  background-color: var(--localBack);
+}
+
+material-expansionpanel.is-local.checked {
+  ::ng-deep .header {
+    border-color: var(--localFore) !important;
+  }
+
+  [name] {
+    > material-icon {
+      color: var(--localFore);
+    }
+  }
+}
+
+material-expansionpanel.is-local {
+  ::ng-deep .header {
+    color: var(--localFore) !important;
+    background: var(--localBack);
+  }
+
+  @include material-checkbox-color(var(--localFore), $modifier: '');
+
+  ::ng-deep div[aria-expanded="true"] {
+    border-color: var(--localFore) !important;
+    background-color: var(--localBack) !important;
+
+    ::ng-deep .header {
+      border: 0;
+      color: var(--localFore) !important;
+    }
+  }
+
+  ::ng-deep material-icon.expand-button {
+    color: var(--localFore) !important;
+  }
+
+  @include expansionpanel-colors(var(--localBack), var(--localFore));
+  @include expansionpanel-focused-colors(var(--localBack), var(--localFore));
+}
+
+material-button.is-beta, div.is-beta {
+  background: var(--betaBack);
+}
+
+material-expansionpanel.is-beta.checked {
+  ::ng-deep .header {
+    border-color: var(--betaFore) !important;
+  }
+
+  [name] {
+    > material-icon {
+      color: var(--betaFore);
+    }
+  }
+}
+
+material-expansionpanel.is-beta {
+  ::ng-deep .header {
+    color: var(--betaFore) !important;
+    background: var(--betaBack);
+  }
+
+  @include material-checkbox-color(var(--betaFore), $modifier: '');
+
+  ::ng-deep div[aria-expanded="true"] {
+    border-color: var(--betaFore) !important;
+    background-color: var(--betaBack) !important;
+
+    ::ng-deep .header {
+      border: 0;
+      color: var(--betaFore) !important;
+    }
+  }
+
+  ::ng-deep material-icon.expand-button {
+    color: var(--betaFore) !important;
+  }
+
+  @include expansionpanel-colors(var(--betaBack), var(--betaFore));
+  @include expansionpanel-focused-colors(var(--betaBack), var(--betaFore));
+}
+
+material-expansionpanel.is-debug.checked {
+  border-color: var(--debugFore) !important;
+  border-radius: 0.5em;
+
+  [name] {
+    > material-icon {
+      color: var(--debugFore);
+    }
+  }
+}
+
+material-expansionpanel.is-debug {
+  ::ng-deep .header {
+    color: var(--debugFore) !important;
+    background: $debug_back;
+  }
+
+  @include material-checkbox-color(var(--debugFore), $modifier: '');
+  @include slider-thumb-color('material-slider.slider', $debug_fore);
+  @include slider-track-color('material-slider.slider', $debug_fore, $mat-gray-400);
+
+  ::ng-deep div[aria-expanded="true"] {
+    border-color: var(--debugFore) !important;
+    background: $debug_back !important;
+
+    ::ng-deep .header {
+      border: 0;
+      color: var(--debugFore) !important;
+    }
+  }
+
+  ::ng-deep material-icon.expand-button {
+    color: var(--debugFore) !important;
+  }
+
+  @include expansionpanel-colors(transparent, var(--debugFore));
+  @include expansionpanel-focused-colors($debug_back, var(--debugFore));
+}
+
+datepicker {
+  @include datepicker_primary_color($mat-yellow-500);
+}
+
+.basePanel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  _height: 3.5em;
+}
+
+.language {
+  min-width: 40px !important;
+}
+
+.sortable {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dragging {
+  opacity: 0;
+
+  _material-expansionpanel {
+    ::ng-deep header {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    @include expansionpanel-colors(rgba(255, 255, 255, 0.5), var(--secondaryFore));
+  }
+}
+
+.currentGluc {
+  color: var(--primaryBack);
+  background: var(--primaryFore);
+  text-shadow: none;
+  border-radius: 0.75em !important;
+  border: 2px solid var(--secondaryBack);
+
+  pre {
+    font-size: 75%;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  ::ng-deep .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1em;
+    text-transform: none;
+    height: 2em;
+
+    ::ng-deep [time] {
+      font-size: 60%;
+    }
+
+    ::ng-deep [debug] {
+      color: $mat-red-500;
+      font-size: 75%;
+      position: absolute;
+      right: 0.1em;
+      top: 0.1em;
+      padding: 0.2em;
+    }
+
+    ::ng-deep [diff] {
+      font-size: 70%;
+      font-weight: bold;
+      color: var(--secondaryFore);
+    }
+
+    ::ng-deep [arrow] {
+      position: relative;
+    }
+
+    .arrow {
+      width: 3.5em;
+      stroke: var(--primaryBack);
+      fill: var(--primaryBack);
+
+      .circle {
+        stroke-width: 0.5em;
+        fill: var(--secondaryBack);
+      }
+    }
+  }
+}
+
+.centered {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+::ng-deep .infoarea.showinfo > *:not(.infotext),
+::ng-deep .infoarea:not(.showinfo) > *.infotext {
+  display: none;
+}
+
+::ng-deep .infoarea > *.infotext {
+  border: 1px solid $mat-red-900;
+  background: $mat-red-600;
+  color: $mat-white;
+  display: flex;
+  flex: 1;
+  padding: 0.5em;
+  white-space: pre;
+  margin: 0;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tile {
+  position: relative;
+  text-align: center;
+
+  [name] {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+    z-index: 100;
+  }
+
+  [number], [numberimg] {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.1;
+    align-items: center;
+    justify-content: center;
+    font-size: 5em;
+    display: flex;
+    z-index: 100;
+  }
+
+  [numberimg] {
+    opacity: 0.6;
+    color: black;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  [pages], [pagesportrait] {
+    position: absolute;
+    bottom: 0em;
+    opacity: 0.5;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    display: flex;
+    z-index: 100;
+  }
+
+  [pagesportrait] {
+  }
+
+  [help] {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+  }
+
+  [params] {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+  }
+
+  [params].close {
+    top: 0.8em;
+    right: 0.8em;
+  }
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    max-height: 75%;
+    max-width: 90%;
+  }
+
+  [title] {
+    padding: 1em;
+    z-index: 100;
+  }
+
+  display: flex;
+  padding: 0.5em;
+  background: var(--secondaryBack);
+  color: var(--secondaryFore);
+  border-radius: 0.5em;
+  margin: 0.2em;
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 20%;
+  max-height: 80%;
+}
+
+.tilelist {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  width: 100%;
+  justify-content: center;
+
+  .tile.dragover {
+    background-image: url("packages/nightscout_reporter/assets/img/arrow-left.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: left center !important;
+    background-size: contain !important;
+  }
+
+  .is-local {
+    border-color: var(--localFore);
+    background: transparent;
+    color: var(--localFore);
+    @include material-checkbox-color(var(--localFore), $modifier: '');
+    @include slider-thumb-color('material-slider.slider', $local_fore);
+    @include slider-track-color('material-slider.slider', var(--localFore), $mat-gray-400);
+  }
+
+  .is-local.params {
+    [title] {
+      background: var(--localFore);
+    }
+  }
+
+  .is-debug {
+    color: var(--debugFore);
+    background: $debug_back;
+    @include material-checkbox-color($debug_fore, $modifier: '');
+    @include slider-thumb-color('material-slider.slider', $debug_fore);
+    @include slider-track-color('material-slider.slider', $debug_fore, $mat-gray-400);
+  }
+
+  .is-debug.params {
+    material-icon, [title] {
+      color: var(--debugFirst);
+      background: var(--debugFore);
+    }
+  }
+}
+
+.tilechecked {
+  background: var(--primaryBack) !important;
+  color: var(--primaryFore) !important;
+  _border: 2px solid var(--primaryBack) !important;
+}
+
+.tilechecked.is-debug {
+  border-color: var(--debugFore) !important;
+  background: $debug_back !important;
+}
+
+.tilechecked.is-local {
+  background-color: var(--localFore) !important;
+  color: var(--localBack) !important;
+}
+
+.dragtile {
+  display: flex;
+  padding: 0;
+  border-radius: 0.5em;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  align-items: center;
+  justify-content: center;
+  opacity: 0.75;
+}
+
+@media(max-width: 33em) {
+  .userPanel.is-tileview {
+    display: none;
+  }
+  .userName {
+    display: none;
+  }
+}
+
+@media(max-width: 44em) {
+  .basePanel.is-tileview {
+    align-self: center;
+    margin-left: 1em;
+  }
+  .tilelist {
+    .tile {
+      min-width: 5em;
+    }
+  }
+}
+
+#debugMessage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  background: $debug_back;
+  color: var(--debugFore);
+  padding: 2em;
+  cursor: pointer;
+  overflow-y: auto;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  max-height: 80%;
+  border: 2px solid var(--debugFore);
+
+  scrollbar-color: var(--debugSecond) var(--debugFirst);
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--debugSecond);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--debugFirst);
+  }
+}
+
+.loop {
+  color: var(--loopMarked);
+
+  ::ng-deep .icon.filled {
+    color: var(--loopMarked) !important;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.pdfinfo {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  left: 50%;
+  top: 50%;
+  margin-left: -30%;
+  margin-top: -30%;
+  flex-direction: column;
+
+  [header] {
+    height: 64px;
+    background: black;
+  }
+
+  [content] {
+    overflow-y: auto;
+    flex: 1;
+    background: red;
+  }
+
+  [footer] {
+    height: 64px;
+    background: gold;
+  }
+}
+
+overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgba(33, 33, 33, 0.4);
+
+  .progress {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 6em 2em var(--primaryBack);
+    background: var(--secondaryBack);
+    padding: 1em;
+    border-radius: 0.5em;
+    min-width: 50vw;
+
+    material-progress {
+      margin-bottom: 1em;
+      margin-top: 1em;
+    }
+
+    material-fab {
+    }
+  }
+
+  .signintext {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+}

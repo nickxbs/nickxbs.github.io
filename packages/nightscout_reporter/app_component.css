@@ -1,0 +1,1527 @@
+body {
+  --primaryBack: #055524;
+  --primaryFore: white;
+  --secondaryBack: #57bb8a;
+  --secondaryFore: black;
+  --debugFirst: #220;
+  --debugSecond: #550;
+  --debugFore: #ffeb3b;
+  --settingsHeaderBack: #006064;
+  --settingsHeaderFore: #b2ebf2;
+  --settingsBodyBack: #4dd0e1;
+  --settingsBodyFore: black;
+  --settingsScrollThumb: #0097a7;
+  --legalHeaderBack: #e65100;
+  --legalHeaderFore: #ffe0b2;
+  --legalBodyBack: #ffb74d;
+  --legalBodyFore: black;
+  --legalScrollThumb: #f57c00;
+  --whatsnewHeaderBack: blue900;
+  --whatsnewHeaderFore: blue100;
+  --whatsnewBodyBack: blue500;
+  --whatsnewBodyFore: black;
+  --whatsnewScrollThumb: blue700;
+  --localFore: purple500;
+  --localBack: purple100;
+  --betaFore: green800;
+  --betaBack: transparent;
+  --pdfBtnBack: red400;
+  --pdfBtnFore: rgba(255, 255, 255, 0.8);
+  --pdfInfoFore: rgba(0, 0, 0, 0.7);
+  --sendMarked: lightBlue800;
+  --googleSignedout: red400;
+  --loopMarked: #a0a0ff;
+  --printparamsHeaderBack: #b71c1c;
+  --printparamsHeaderFore: #ffcdd2;
+  --printparamsBodyBack: #e57373;
+  --printparamsBodyFore: black;
+  --printparamsScrollThumb: #d32f2f;
+  --shortcutHeaderBack: #afb42b;
+  --shortcutHeaderFore: #afb42b;
+  --shortcutBodyBack: #afb42b;
+  --shortcutBodyFore: #afb42b;
+  --shortcutScrollThumb: #ff0000;
+}
+
+.betaBox {
+  box-shadow: 0 0 10px 3px #00ffff;
+}
+
+.betaText {
+  animation: glowing 1s linear infinite alternate;
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 0px;
+  }
+  100% {
+    text-shadow: 0 0 30px;
+  }
+}
+.iconButton material-icon,
+.iconButton img {
+  margin-right: 1em;
+}
+
+.imageButton img {
+  height: 16px;
+  margin-right: 1em;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  width: 100vw;
+  height: 100vh;
+}
+:host ::ng-deep material-checkbox:not(.disabled) .icon-container .icon.filled {
+  color: var(--primaryBack);
+}
+:host ::ng-deep material-checkbox.is-local:not(.disabled) .icon-container .icon.filled {
+  color: var(--localBack);
+}
+:host ::ng-deep material-slider.slider .knob-real,
+:host ::ng-deep material-slider.slider .is-dragging.knob-drag-shadow {
+  background-color: #055524;
+}
+:host ::ng-deep material-slider.slider .knob:focus .knob-hover-shadow,
+:host ::ng-deep material-slider.slider .knob:hover .knob-hover-shadow {
+  background-color: rgba(5, 85, 36, 0.5);
+}
+:host ::ng-deep material-slider.slider .left-track-container > .track {
+  background-color: #055524;
+}
+:host ::ng-deep material-slider.slider .right-track-container > .track {
+  background-color: #bdbdbd;
+}
+:host ::ng-deep material-progress .progress-container.indeterminate {
+  background-color: var(--primaryBack);
+}
+:host ::ng-deep material-progress .progress-container.indeterminate > .secondary-progress {
+  background-color: var(--primaryBack);
+}
+:host ::ng-deep material-progress .active-progress {
+  background-color: var(--primaryBack);
+}
+:host ::ng-deep material-progress .secondary-progress {
+  background-color: var(--primaryFore);
+}
+:host ::-webkit-scrollbar {
+  width: auto;
+}
+:host ::-webkit-scrollbar-track {
+  background-color: var(--secondaryBack);
+}
+:host ::-webkit-scrollbar-thumb {
+  background-color: var(--primaryBack);
+}
+
+header.material-header {
+  background-color: var(--primaryBack);
+}
+
+header.material-header.debug {
+  color: var(--debugFore) !important;
+  text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000, 0 -1px 1px #000000;
+  background: repeating-linear-gradient(45deg, var(--debugFirst), var(--debugFirst) 0.5em, var(--debugSecond) 0.5em, var(--debugSecond) 1em);
+}
+
+header.material-header .material-header-title {
+  position: initial;
+  display: flex;
+  height: initial;
+  align-items: center;
+}
+header.material-header .material-header-title .title {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+header.material-header .material-header-title .title > div {
+  flex-direction: row;
+}
+header.material-header .material-header-title .title .versionText {
+  font-size: 50%;
+  color: white;
+  opacity: 0.5;
+  margin-left: -10px;
+  margin-top: 3px;
+  min-width: 0 !important;
+}
+header.material-header .material-header-title .title .versionText ::ng-deep .content {
+  padding: 0 1em !important;
+}
+
+header.material-header .material-header-row {
+  justify-content: space-between;
+}
+
+#app-content {
+  background-color: var(--secondaryBack);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.icon-shortcut {
+  color: var(--shortcutBodyBack);
+}
+
+material-content.main {
+  min-height: unset !important;
+  display: flex !important;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: scroll;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  scrollbar-color: var(--primaryBack) var(--secondaryBack);
+}
+
+> div.centered {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.tileparams {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 0.5em;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  flex: 1;
+  padding: 0.5em;
+  align-self: center;
+  margin: 1em 0;
+}
+.tileparams [title] {
+  background-color: var(--primaryBack);
+  color: var(--primaryFore);
+  padding: 0 0 0 1em;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  align-self: stretch;
+  border-radius: 0.5em;
+  margin-bottom: 0.5em;
+}
+.tileparams [title] material-button {
+  min-width: 32px;
+}
+.tileparams [parampanel] {
+  display: flex;
+  flex: 1;
+  flex-basis: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+  flex-direction: column;
+}
+.tileparams [parampanel] [paramtitle] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+  border: 1px solid black;
+  border-radius: 0.5em;
+  margin: 0.5em;
+}
+.tileparams [parampanel] formparams {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 0.5em;
+}
+
+material-button img {
+  width: 1.5em;
+}
+
+material-button svg {
+  width: 1.5em;
+}
+
+.info .controls {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+
+.menuControls,
+.menuLinks {
+  flex-direction: row;
+}
+
+.menuControls ::ng-deep .iconButton {
+  display: flex;
+  flex: 1;
+  text-align: left;
+}
+
+.iconButton material-icon[icon=open_in_new] {
+  padding-left: 1em;
+  margin: 0;
+}
+
+.iconButton img, .iconButton svg, ::ng-deep .iconButton material-icon {
+  margin-right: 1em;
+}
+
+.formlist {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.pdfPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 6em 2em var(--primaryBack);
+  background: var(--secondaryBack);
+  padding: 0.5em;
+  border-radius: 0.5em;
+  position: relative;
+}
+.pdfPage .pdfClose {
+  position: absolute;
+  right: 0.2em;
+  top: 0.2em;
+}
+.pdfPage .pdfList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.pdfPage .pdfList .pdfButton {
+  width: 4em;
+}
+.pdfPage .pdfList .pdfButton .pdfButtonText {
+  font-size: 2em;
+}
+.pdfPage .pdfList .pdfButton, .pdfPage .pdfInfoPanel .pdfButton {
+  background: var(--pdfBtnBack);
+  color: var(--pdfBtnFore);
+  margin-bottom: 0.1em;
+}
+.pdfPage .pdfList .pdfButton .pdfButtonText, .pdfPage .pdfInfoPanel .pdfButton .pdfButtonText {
+  color: var(--pdfBtnFore);
+  font-weight: bold;
+}
+.pdfPage .pdfSizes {
+  display: flex;
+  font-size: 0.8em;
+  width: 90%;
+  justify-content: center;
+  margin: 0 0.3em;
+}
+.pdfPage .pdfInfo {
+  margin-top: 1em;
+  color: var(--pdfInfoFore);
+  background-color: transparent;
+  text-transform: none;
+}
+.pdfPage .pdfInfoPanel {
+  margin: 2em;
+  max-width: 60em;
+}
+.pdfPage .pdfInfoPanel .pdfSlider {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1em;
+}
+.pdfPage .pdfInfoPanel .pdfSlider > div {
+  width: 5%;
+}
+.pdfPage .pdfInfoPanel .pdfSlider material-slider {
+  width: 100%;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.sendPanel:not(.is-tileview) {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+}
+.sendPanel:not(.is-tileview) material-fab {
+  margin-top: 0.5em;
+}
+
+.sendPanel.is-tileview {
+  flex-direction: row;
+  position: initial;
+  display: flex;
+  align-self: stretch;
+  justify-content: flex-end;
+  padding-top: 0.2em;
+  padding-bottom: 0.5em;
+}
+.sendPanel.is-tileview material-fab {
+  margin-top: 0;
+  margin-right: 0.5em;
+}
+
+.shift1, .shift2 {
+  background: var(--primaryBack);
+  color: var(--primaryFore);
+}
+.shift1 ::ng-deep .content, .shift2 ::ng-deep .content {
+  font-size: 50%;
+}
+
+.sendMarked {
+  background: var(--sendMarked) !important;
+}
+
+.shift1 {
+  opacity: 0.7;
+}
+
+.shift2 {
+  opacity: 0.5;
+}
+
+.send {
+  background: var(--primaryBack);
+  color: var(--primaryFore);
+}
+
+.stop {
+  background: #db4437 !important;
+  color: #fff;
+}
+
+.close {
+  color: var(--primaryFore);
+}
+
+#messagePanel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-height: 30%;
+  z-index: 10001;
+  width: 100%;
+  display: flex;
+}
+#messagePanel ::-webkit-scrollbar-track {
+  background-color: #000;
+}
+#messagePanel ::-webkit-scrollbar-thumb {
+  background-color: #616161;
+}
+
+#message {
+  display: flex;
+  flex: 1;
+  padding: 0.5em;
+  background: #000;
+  color: white;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  padding-right: 2em;
+}
+#message material-button:not(.msgClose) {
+  background-color: var(--primaryBack);
+  margin-bottom: 0.2em;
+}
+#message .msgClose {
+  position: absolute;
+  right: 0.8em;
+  top: 0.5em;
+}
+
+#postForm {
+  display: none;
+}
+
+.menuFabs {
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.menuFabs div {
+  justify-content: space-evenly;
+}
+.menuFabs material-button {
+  background: #33ac71;
+  color: #055524;
+  margin: 0 1em;
+}
+
+.toggle-debug {
+  display: flex;
+  flex-direction: row;
+  color: var(--debugFore) !important;
+  text-shadow: -1px 0 1px #000000, 0 1px 1px #000000, 1px 0 1px #000000, 0 -1px 1px #000000;
+  background: repeating-linear-gradient(45deg, var(--debugFirst), var(--debugFirst) 0.5em, var(--debugSecond) 0.5em, var(--debugSecond) 1em) !important;
+  padding: 0.3em;
+  align-items: center;
+}
+.toggle-debug ::ng-deep material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar {
+  background-color: var(--debugFore);
+}
+.toggle-debug ::ng-deep material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn {
+  background-color: var(--debugFore);
+}
+.toggle-debug ::ng-deep material-toggle.themeable .tgl-btn-underlay.under-focus else {
+  background-color: rgba(188, 188, 188, 0.24);
+}
+.toggle-debug ::ng-deep material-toggle.themeable .tgl-btn-underlay.under-focus.under-checked {
+  background-color: rgba(var(--debugFore), 0.24);
+}
+
+.noshadow {
+  color: #fff !important;
+  text-shadow: none !important;
+}
+
+.langPanel {
+  padding-left: 0.5em;
+}
+.langPanel ::ng-deep {
+  background: #055524 !important;
+}
+.langPanel ::ng-deep material-list .item:hover ::ng-deep {
+  background: none !important;
+}
+.langPanel ::ng-deep material-list {
+  padding: 0;
+}
+
+.legal {
+  font-size: 8pt;
+}
+
+.subtitle {
+  padding-top: 0.5em;
+  font-size: 50%;
+  opacity: 0.8;
+}
+
+.userName {
+  text-align: center;
+}
+
+material-fab.debug-trigger {
+  background: repeating-linear-gradient(45deg, var(--debugFirst), var(--debugFirst) 0.5em, var(--debugSecond) 0.5em, var(--debugSecond) 1em) !important;
+  color: #fff;
+}
+
+.themePanel {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0.75em;
+  left: 4em;
+  overflow: hidden;
+  align-items: center;
+  justify-content: flex-end;
+}
+.themePanel .logo {
+  height: 90%;
+}
+.themePanel .donation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffc439;
+  color: black;
+  height: 2em;
+  text-transform: none;
+  border-radius: 2em !important;
+}
+
+@keyframes showthemes {
+  0% {
+    width: 0;
+  }
+  10% {
+    width: 0;
+  }
+  90% {
+    width: calc(15em + 1em);
+  }
+  100% {
+    width: 15em;
+  }
+}
+@keyframes hidethemes {
+  0% {
+    width: 15em;
+  }
+  10% {
+    width: calc(15em + 1em);
+  }
+  90% {
+    width: 0;
+  }
+  100% {
+    width: 0;
+  }
+}
+@keyframes showthemeslogo {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-30deg);
+  }
+  90% {
+    transform: rotate(390deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes hidethemeslogo {
+  0% {
+    transform: rotate(360deg);
+  }
+  10% {
+    transform: rotate(390deg);
+  }
+  90% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.owllogo {
+  position: fixed !important;
+  bottom: 0.5em;
+  left: 1em;
+}
+.owllogo img {
+  height: 90%;
+}
+
+material-drawer .tabs {
+  display: flex;
+  flex-direction: row;
+}
+material-drawer .tabs material-button {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin: 0;
+  border-radius: 0;
+}
+material-drawer .tabs material-button.menu {
+  background-color: var(--primaryBack);
+  color: var(--primaryFore);
+}
+material-drawer .tabs material-button.shortcuts {
+  background-color: var(--shortcutHeaderBack);
+  color: var(--shortcutHeaderFore);
+}
+
+.drawer-root {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: var(--primaryBack);
+  justify-content: space-between;
+  color: var(--primaryFore);
+  overflow-y: auto;
+}
+
+.shortcut-root {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: var(--shortcutHeaderBack);
+  color: var(--shortcutHeaderFore);
+}
+.shortcut-root .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+}
+.shortcut-root .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0.5em;
+  overflow-y: auto;
+  height: 100%;
+}
+.shortcut-root .content ::-webkit-scrollbar-track {
+  background-color: var(--secondaryBack);
+}
+.shortcut-root .content ::-webkit-scrollbar-thumb {
+  background-color: var(--primaryBack);
+}
+.shortcut-root .content material-button.add {
+  border-radius: 20px;
+}
+.shortcut-root .content .shortcut:not(:hover) {
+  border: 1px solid transparent;
+}
+.shortcut-root .content .shortcut:hover {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 20px;
+}
+.shortcut-root .content .active > material-button {
+  background: var(--shortcutHeaderFore) !important;
+  color: var(--shortcutHeaderBack) !important;
+}
+.shortcut-root .content .shortcut {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.shortcut-root .content .shortcut material-button {
+  display: flex;
+  min-width: initial;
+  margin: 0;
+  background: var(--shortcutBodyBack);
+  color: var(--shortcutBodyFore);
+  border-radius: 0;
+}
+.shortcut-root .content .shortcut material-button:first-child {
+  flex: 1;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.shortcut-root .content .shortcut material-button:not(:first-child) {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.shortcut-root .content .shortcut material-button.add {
+  border-radius: 20px;
+}
+.shortcut-root material-fab {
+  white-space: nowrap;
+}
+.shortcut-root material-button {
+  text-transform: none;
+}
+.shortcut-root material-button:first-child material-icon {
+  margin-right: 0.5em;
+}
+
+signin ::ng-deep material-fab:not(.authorized) {
+  background: var(--googleSignedout) !important;
+}
+
+.betaTitle, .localTitle {
+  font-size: 50%;
+}
+.betaTitle ::ng-deep .content, .localTitle ::ng-deep .content {
+  padding: 0 !important;
+}
+
+.localTitle {
+  color: var(--localBack);
+}
+
+.headerinfo {
+  position: absolute;
+  right: 2em;
+  top: 0em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.currLang {
+  background: var(--secondaryBack);
+}
+
+a {
+  cursor: pointer;
+}
+
+nav a:visited,
+nav a:active,
+nav a {
+  text-decoration: none;
+  font-size: 75%;
+  opacity: 0.5;
+  color: #fff;
+}
+
+.material-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.normal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.5em;
+  width: 100%;
+}
+
+.normal-content.is-tileview {
+  flex: 1;
+}
+
+::ng-deep material-select-item.selected {
+  color: var(--primaryBack);
+}
+
+::ng-deep .selected-accent.mixin.mixin {
+  background: var(--primaryFore);
+}
+
+.userSelect ::ng-deep material-list {
+  background: var(--secondaryBack);
+  padding: 0;
+}
+.userSelect ::ng-deep material-list material-select-item {
+  display: flex;
+  flex-direction: column;
+  line-height: initial;
+  align-items: flex-start;
+  padding: 0.2em 0.5em;
+}
+.userSelect ::ng-deep material-list material-select-item div.itemSub {
+  font-size: 75%;
+}
+.userSelect ::ng-deep material-list material-select-item .selected-accent {
+  background-color: var(--primaryBack);
+}
+.userSelect ::ng-deep material-list material-select-item.unreachable {
+  color: var(--primaryBack);
+  background-color: silver;
+}
+
+.paramSelect ::ng-deep material-list {
+  background: var(--secondaryBack);
+  padding: 0;
+}
+.paramSelect ::ng-deep material-list material-select-item {
+  display: flex;
+  flex-direction: column;
+  line-height: initial;
+  align-items: flex-start;
+  padding: 0.2em 0.5em;
+}
+.paramSelect ::ng-deep material-list material-select-item .selected-accent {
+  background-color: var(--primaryBack);
+}
+.paramSelect ::ng-deep material-list material-select-item.selected {
+  background-color: var(--primaryBack);
+  color: var(--primaryFore);
+}
+
+material-dropdown-select ::ng-deep .button.border {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.paramList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.paramList material-dropdown-select {
+  margin-left: 1em;
+  background: var(--primaryBack);
+  color: var(--primaryFore);
+}
+.paramList material-dropdown-select ::ng-deep .button {
+  padding: 0.5em;
+}
+
+.userPanel {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 50em) {
+  .title {
+    display: none !important;
+  }
+}
+.paramPanel ::ng-deep div.panel.themeable .header, .paramPanel ::ng-deep div.panel.themeable.open > header:not(.hidden) > .header {
+  min-height: 32px;
+}
+.paramPanel ::ng-deep div.panel.themeable .action-buttons {
+  padding: 8px 0;
+}
+.paramPanel ::ng-deep div.panel.themeable .panel-name {
+  margin: 8px 0;
+  line-height: 16px;
+}
+.paramPanel ::ng-deep div.panel.themeable .content-wrapper {
+  margin: 0 24px 8px;
+}
+
+.paramPanel ::ng-deep .content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+}
+
+material-expansionpanel {
+  display: flex;
+  flex-direction: column;
+  min-width: 20em;
+  max-width: 20em;
+  border: 2px solid transparent;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+material-expansionpanel ::ng-deep div.panel.themeable {
+  background-color: var(--secondaryBack);
+}
+material-expansionpanel ::ng-deep div.panel.themeable {
+  color: var(--secondaryFore);
+}
+material-expansionpanel ::ng-deep div.panel.themeable > header {
+  color: rgba(var(--secondaryFore), 0.87);
+}
+material-expansionpanel ::ng-deep div.panel.themeable > header p.secondary-text {
+  color: rgba(var(--secondaryFore), 0.54);
+}
+material-expansionpanel ::ng-deep div.panel.themeable material-icon.expand-button {
+  color: rgba(var(--secondaryFore), 0.87);
+}
+material-expansionpanel ::ng-deep div.panel.themeable > header > .header.closed:hover, material-expansionpanel ::ng-deep div.panel.themeable > header > .header.closed:focus {
+  background-color: transparent;
+}
+material-expansionpanel ::ng-deep div.panel.themeable > header > .header.closed:hover, material-expansionpanel ::ng-deep div.panel.themeable > header > .header.closed:focus {
+  color: var(--secondaryFore);
+}
+material-expansionpanel ::ng-deep div.panel.themeable {
+  border-radius: 0.5em;
+}
+material-expansionpanel ::ng-deep div.panel.themeable .header {
+  border-radius: 0.5em;
+}
+material-expansionpanel ::ng-deep div[buttondecorator] {
+  cursor: pointer !important;
+}
+material-expansionpanel ::ng-deep .header {
+  border: 2px solid transparent;
+  padding-left: 0;
+}
+material-expansionpanel ::ng-deep main:not(.hidden) {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 0.5em;
+  padding-top: 0.5em;
+}
+material-expansionpanel ::ng-deep div[aria-expanded=true] {
+  border: 2px solid var(--primaryBack) !important;
+}
+material-expansionpanel ::ng-deep div[aria-expanded=true] ::ng-deep .header {
+  border: 0;
+  background-color: transparent;
+}
+material-expansionpanel [name] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+}
+material-expansionpanel [name] > material-icon {
+  padding-left: 0.2em;
+  padding-right: 0.3em;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+material-expansionpanel.checked ::ng-deep .header {
+  border: 2px solid var(--primaryBack);
+  border-radius: 0.5em;
+  font-weight: bold;
+}
+material-expansionpanel.checked [name] > material-icon {
+  color: #006064;
+}
+
+material-button.is-local, div.is-local {
+  color: var(--localFore);
+  background-color: var(--localBack);
+}
+
+material-expansionpanel.is-local.checked ::ng-deep .header {
+  border-color: var(--localFore) !important;
+}
+material-expansionpanel.is-local.checked [name] > material-icon {
+  color: var(--localFore);
+}
+
+material-expansionpanel.is-local ::ng-deep .header {
+  color: var(--localFore) !important;
+  background: var(--localBack);
+}
+material-expansionpanel.is-local ::ng-deep material-checkbox:not(.disabled) .icon-container .icon.filled {
+  color: var(--localFore);
+}
+material-expansionpanel.is-local ::ng-deep div[aria-expanded=true] {
+  border-color: var(--localFore) !important;
+  background-color: var(--localBack) !important;
+}
+material-expansionpanel.is-local ::ng-deep div[aria-expanded=true] ::ng-deep .header {
+  border: 0;
+  color: var(--localFore) !important;
+}
+material-expansionpanel.is-local ::ng-deep material-icon.expand-button {
+  color: var(--localFore) !important;
+}
+material-expansionpanel.is-local ::ng-deep div.panel.themeable {
+  background-color: var(--localBack);
+}
+material-expansionpanel.is-local ::ng-deep div.panel.themeable {
+  color: var(--localFore);
+}
+material-expansionpanel.is-local ::ng-deep div.panel.themeable > header {
+  color: rgba(var(--localFore), 0.87);
+}
+material-expansionpanel.is-local ::ng-deep div.panel.themeable > header p.secondary-text {
+  color: rgba(var(--localFore), 0.54);
+}
+material-expansionpanel.is-local ::ng-deep div.panel.themeable material-icon.expand-button {
+  color: rgba(var(--localFore), 0.87);
+}
+material-expansionpanel.is-local ::ng-deep div.panel.themeable > header > .header.closed:hover, material-expansionpanel.is-local ::ng-deep div.panel.themeable > header > .header.closed:focus {
+  background-color: var(--localBack);
+}
+material-expansionpanel.is-local ::ng-deep div.panel.themeable > header > .header.closed:hover, material-expansionpanel.is-local ::ng-deep div.panel.themeable > header > .header.closed:focus {
+  color: var(--localFore);
+}
+
+material-button.is-beta, div.is-beta {
+  background: var(--betaBack);
+}
+
+material-expansionpanel.is-beta.checked ::ng-deep .header {
+  border-color: var(--betaFore) !important;
+}
+material-expansionpanel.is-beta.checked [name] > material-icon {
+  color: var(--betaFore);
+}
+
+material-expansionpanel.is-beta ::ng-deep .header {
+  color: var(--betaFore) !important;
+  background: var(--betaBack);
+}
+material-expansionpanel.is-beta ::ng-deep material-checkbox:not(.disabled) .icon-container .icon.filled {
+  color: var(--betaFore);
+}
+material-expansionpanel.is-beta ::ng-deep div[aria-expanded=true] {
+  border-color: var(--betaFore) !important;
+  background-color: var(--betaBack) !important;
+}
+material-expansionpanel.is-beta ::ng-deep div[aria-expanded=true] ::ng-deep .header {
+  border: 0;
+  color: var(--betaFore) !important;
+}
+material-expansionpanel.is-beta ::ng-deep material-icon.expand-button {
+  color: var(--betaFore) !important;
+}
+material-expansionpanel.is-beta ::ng-deep div.panel.themeable {
+  background-color: var(--betaBack);
+}
+material-expansionpanel.is-beta ::ng-deep div.panel.themeable {
+  color: var(--betaFore);
+}
+material-expansionpanel.is-beta ::ng-deep div.panel.themeable > header {
+  color: rgba(var(--betaFore), 0.87);
+}
+material-expansionpanel.is-beta ::ng-deep div.panel.themeable > header p.secondary-text {
+  color: rgba(var(--betaFore), 0.54);
+}
+material-expansionpanel.is-beta ::ng-deep div.panel.themeable material-icon.expand-button {
+  color: rgba(var(--betaFore), 0.87);
+}
+material-expansionpanel.is-beta ::ng-deep div.panel.themeable > header > .header.closed:hover, material-expansionpanel.is-beta ::ng-deep div.panel.themeable > header > .header.closed:focus {
+  background-color: var(--betaBack);
+}
+material-expansionpanel.is-beta ::ng-deep div.panel.themeable > header > .header.closed:hover, material-expansionpanel.is-beta ::ng-deep div.panel.themeable > header > .header.closed:focus {
+  color: var(--betaFore);
+}
+
+material-expansionpanel.is-debug.checked {
+  border-color: var(--debugFore) !important;
+  border-radius: 0.5em;
+}
+material-expansionpanel.is-debug.checked [name] > material-icon {
+  color: var(--debugFore);
+}
+
+material-expansionpanel.is-debug ::ng-deep .header {
+  color: var(--debugFore) !important;
+  background: repeating-linear-gradient(45deg, var(--debugFirst), var(--debugFirst) 0.5em, var(--debugSecond) 0.5em, var(--debugSecond) 1em);
+}
+material-expansionpanel.is-debug ::ng-deep material-checkbox:not(.disabled) .icon-container .icon.filled {
+  color: var(--debugFore);
+}
+material-expansionpanel.is-debug ::ng-deep material-slider.slider .knob-real,
+material-expansionpanel.is-debug ::ng-deep material-slider.slider .is-dragging.knob-drag-shadow {
+  background-color: #ffeb3b;
+}
+material-expansionpanel.is-debug ::ng-deep material-slider.slider .knob:focus .knob-hover-shadow,
+material-expansionpanel.is-debug ::ng-deep material-slider.slider .knob:hover .knob-hover-shadow {
+  background-color: rgba(255, 235, 59, 0.5);
+}
+material-expansionpanel.is-debug ::ng-deep material-slider.slider .left-track-container > .track {
+  background-color: #ffeb3b;
+}
+material-expansionpanel.is-debug ::ng-deep material-slider.slider .right-track-container > .track {
+  background-color: #bdbdbd;
+}
+material-expansionpanel.is-debug ::ng-deep div[aria-expanded=true] {
+  border-color: var(--debugFore) !important;
+  background: repeating-linear-gradient(45deg, var(--debugFirst), var(--debugFirst) 0.5em, var(--debugSecond) 0.5em, var(--debugSecond) 1em) !important;
+}
+material-expansionpanel.is-debug ::ng-deep div[aria-expanded=true] ::ng-deep .header {
+  border: 0;
+  color: var(--debugFore) !important;
+}
+material-expansionpanel.is-debug ::ng-deep material-icon.expand-button {
+  color: var(--debugFore) !important;
+}
+material-expansionpanel.is-debug ::ng-deep div.panel.themeable {
+  background-color: transparent;
+}
+material-expansionpanel.is-debug ::ng-deep div.panel.themeable {
+  color: var(--debugFore);
+}
+material-expansionpanel.is-debug ::ng-deep div.panel.themeable > header {
+  color: rgba(var(--debugFore), 0.87);
+}
+material-expansionpanel.is-debug ::ng-deep div.panel.themeable > header p.secondary-text {
+  color: rgba(var(--debugFore), 0.54);
+}
+material-expansionpanel.is-debug ::ng-deep div.panel.themeable material-icon.expand-button {
+  color: rgba(var(--debugFore), 0.87);
+}
+material-expansionpanel.is-debug ::ng-deep div.panel.themeable > header > .header.closed:hover, material-expansionpanel.is-debug ::ng-deep div.panel.themeable > header > .header.closed:focus {
+  background-color: repeating-linear-gradient(45deg, var(--debugFirst), var(--debugFirst) 0.5em, var(--debugSecond) 0.5em, var(--debugSecond) 1em);
+}
+material-expansionpanel.is-debug ::ng-deep div.panel.themeable > header > .header.closed:hover, material-expansionpanel.is-debug ::ng-deep div.panel.themeable > header > .header.closed:focus {
+  color: var(--debugFore);
+}
+
+datepicker ::ng-deep material-input ::ng-deep .top-section > .input-container > .label > .label-text {
+  color: #ffeb3b;
+}
+datepicker ::ng-deep material-input ::ng-deep .focused-underline:not(.invalid) {
+  background-color: #ffeb3b;
+}
+datepicker ::ng-deep material-dialog ::ng-deep .wrapper > header, datepicker ::ng-deep material-dialog[headered] ::ng-deep .wrapper > header {
+  background-color: #ffeb3b;
+}
+
+.basePanel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  _height: 3.5em;
+}
+
+.language {
+  min-width: 40px !important;
+}
+
+.sortable {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dragging {
+  opacity: 0;
+}
+.dragging _material-expansionpanel ::ng-deep header {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.dragging _material-expansionpanel ::ng-deep div.panel.themeable {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.dragging _material-expansionpanel ::ng-deep div.panel.themeable {
+  color: var(--secondaryFore);
+}
+.dragging _material-expansionpanel ::ng-deep div.panel.themeable > header {
+  color: rgba(var(--secondaryFore), 0.87);
+}
+.dragging _material-expansionpanel ::ng-deep div.panel.themeable > header p.secondary-text {
+  color: rgba(var(--secondaryFore), 0.54);
+}
+.dragging _material-expansionpanel ::ng-deep div.panel.themeable material-icon.expand-button {
+  color: rgba(var(--secondaryFore), 0.87);
+}
+
+.currentGluc {
+  color: var(--primaryBack);
+  background: var(--primaryFore);
+  text-shadow: none;
+  border-radius: 0.75em !important;
+  border: 2px solid var(--secondaryBack);
+}
+.currentGluc pre {
+  font-size: 75%;
+  color: rgba(0, 0, 0, 0.8);
+}
+.currentGluc ::ng-deep .content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1em;
+  text-transform: none;
+  height: 2em;
+}
+.currentGluc ::ng-deep .content ::ng-deep [time] {
+  font-size: 60%;
+}
+.currentGluc ::ng-deep .content ::ng-deep [debug] {
+  color: #db4437;
+  font-size: 75%;
+  position: absolute;
+  right: 0.1em;
+  top: 0.1em;
+  padding: 0.2em;
+}
+.currentGluc ::ng-deep .content ::ng-deep [diff] {
+  font-size: 70%;
+  font-weight: bold;
+  color: var(--secondaryFore);
+}
+.currentGluc ::ng-deep .content ::ng-deep [arrow] {
+  position: relative;
+}
+.currentGluc ::ng-deep .content .arrow {
+  width: 3.5em;
+  stroke: var(--primaryBack);
+  fill: var(--primaryBack);
+}
+.currentGluc ::ng-deep .content .arrow .circle {
+  stroke-width: 0.5em;
+  fill: var(--secondaryBack);
+}
+
+.centered {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+::ng-deep .infoarea.showinfo > *:not(.infotext),
+::ng-deep .infoarea:not(.showinfo) > *.infotext {
+  display: none;
+}
+
+::ng-deep .infoarea > *.infotext {
+  border: 1px solid #a52714;
+  background: #d23f31;
+  color: #fff;
+  display: flex;
+  flex: 1;
+  padding: 0.5em;
+  white-space: pre;
+  margin: 0;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tile {
+  position: relative;
+  text-align: center;
+  display: flex;
+  padding: 0.5em;
+  background: var(--secondaryBack);
+  color: var(--secondaryFore);
+  border-radius: 0.5em;
+  margin: 0.2em;
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 20%;
+  max-height: 80%;
+}
+.tile [name] {
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+  z-index: 100;
+}
+.tile [number], .tile [numberimg] {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.1;
+  align-items: center;
+  justify-content: center;
+  font-size: 5em;
+  display: flex;
+  z-index: 100;
+}
+.tile [numberimg] {
+  opacity: 0.6;
+  color: black;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.tile [pages], .tile [pagesportrait] {
+  position: absolute;
+  bottom: 0em;
+  opacity: 0.5;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  display: flex;
+  z-index: 100;
+}
+.tile [help] {
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+}
+.tile [params] {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+}
+.tile [params].close {
+  top: 0.8em;
+  right: 0.8em;
+}
+.tile img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  max-height: 75%;
+  max-width: 90%;
+}
+.tile [title] {
+  padding: 1em;
+  z-index: 100;
+}
+
+.tilelist {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  width: 100%;
+  justify-content: center;
+}
+.tilelist .tile.dragover {
+  background-image: url("packages/nightscout_reporter/assets/img/arrow-left.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: left center !important;
+  background-size: contain !important;
+}
+.tilelist .is-local {
+  border-color: var(--localFore);
+  background: transparent;
+  color: var(--localFore);
+}
+.tilelist .is-local ::ng-deep material-checkbox:not(.disabled) .icon-container .icon.filled {
+  color: var(--localFore);
+}
+.tilelist .is-local ::ng-deep material-slider.slider .knob-real,
+.tilelist .is-local ::ng-deep material-slider.slider .is-dragging.knob-drag-shadow {
+  background-color: #9c27b0;
+}
+.tilelist .is-local ::ng-deep material-slider.slider .knob:focus .knob-hover-shadow,
+.tilelist .is-local ::ng-deep material-slider.slider .knob:hover .knob-hover-shadow {
+  background-color: rgba(156, 39, 176, 0.5);
+}
+.tilelist .is-local ::ng-deep material-slider.slider .left-track-container > .track {
+  background-color: var(--localFore);
+}
+.tilelist .is-local ::ng-deep material-slider.slider .right-track-container > .track {
+  background-color: #bdbdbd;
+}
+.tilelist .is-local.params [title] {
+  background: var(--localFore);
+}
+.tilelist .is-debug {
+  color: var(--debugFore);
+  background: repeating-linear-gradient(45deg, var(--debugFirst), var(--debugFirst) 0.5em, var(--debugSecond) 0.5em, var(--debugSecond) 1em);
+}
+.tilelist .is-debug ::ng-deep material-checkbox:not(.disabled) .icon-container .icon.filled {
+  color: #ffeb3b;
+}
+.tilelist .is-debug ::ng-deep material-slider.slider .knob-real,
+.tilelist .is-debug ::ng-deep material-slider.slider .is-dragging.knob-drag-shadow {
+  background-color: #ffeb3b;
+}
+.tilelist .is-debug ::ng-deep material-slider.slider .knob:focus .knob-hover-shadow,
+.tilelist .is-debug ::ng-deep material-slider.slider .knob:hover .knob-hover-shadow {
+  background-color: rgba(255, 235, 59, 0.5);
+}
+.tilelist .is-debug ::ng-deep material-slider.slider .left-track-container > .track {
+  background-color: #ffeb3b;
+}
+.tilelist .is-debug ::ng-deep material-slider.slider .right-track-container > .track {
+  background-color: #bdbdbd;
+}
+.tilelist .is-debug.params material-icon, .tilelist .is-debug.params [title] {
+  color: var(--debugFirst);
+  background: var(--debugFore);
+}
+
+.tilechecked {
+  background: var(--primaryBack) !important;
+  color: var(--primaryFore) !important;
+  _border: 2px solid var(--primaryBack) !important;
+}
+
+.tilechecked.is-debug {
+  border-color: var(--debugFore) !important;
+  background: repeating-linear-gradient(45deg, var(--debugFirst), var(--debugFirst) 0.5em, var(--debugSecond) 0.5em, var(--debugSecond) 1em) !important;
+}
+
+.tilechecked.is-local {
+  background-color: var(--localFore) !important;
+  color: var(--localBack) !important;
+}
+
+.dragtile {
+  display: flex;
+  padding: 0;
+  border-radius: 0.5em;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  align-items: center;
+  justify-content: center;
+  opacity: 0.75;
+}
+
+@media (max-width: 33em) {
+  .userPanel.is-tileview {
+    display: none;
+  }
+
+  .userName {
+    display: none;
+  }
+}
+@media (max-width: 44em) {
+  .basePanel.is-tileview {
+    align-self: center;
+    margin-left: 1em;
+  }
+
+  .tilelist .tile {
+    min-width: 5em;
+  }
+}
+#debugMessage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  background: repeating-linear-gradient(45deg, var(--debugFirst), var(--debugFirst) 0.5em, var(--debugSecond) 0.5em, var(--debugSecond) 1em);
+  color: var(--debugFore);
+  padding: 2em;
+  cursor: pointer;
+  overflow-y: auto;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  max-height: 80%;
+  border: 2px solid var(--debugFore);
+  scrollbar-color: var(--debugSecond) var(--debugFirst);
+}
+#debugMessage ::-webkit-scrollbar-track {
+  background-color: var(--debugSecond);
+}
+#debugMessage ::-webkit-scrollbar-thumb {
+  background-color: var(--debugFirst);
+}
+
+.loop {
+  color: var(--loopMarked);
+}
+.loop ::ng-deep .icon.filled {
+  color: var(--loopMarked) !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.pdfinfo {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  left: 50%;
+  top: 50%;
+  margin-left: -30%;
+  margin-top: -30%;
+  flex-direction: column;
+}
+.pdfinfo [header] {
+  height: 64px;
+  background: black;
+}
+.pdfinfo [content] {
+  overflow-y: auto;
+  flex: 1;
+  background: red;
+}
+.pdfinfo [footer] {
+  height: 64px;
+  background: gold;
+}
+
+overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgba(33, 33, 33, 0.4);
+}
+overlay .progress {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6em 2em var(--primaryBack);
+  background: var(--secondaryBack);
+  padding: 1em;
+  border-radius: 0.5em;
+  min-width: 50vw;
+}
+overlay .progress material-progress {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+overlay .signintext {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}

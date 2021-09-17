@@ -1,0 +1,1 @@
+final List<dynamic> styles = ['material-button svg.google {\n  width: 1em;\n}\n\nmaterial-fab {\n  background: white !important;\n}\nmaterial-fab svg.google {\n  width: 24px;\n}\n\n#revokeForm {\n  display: none;\n}\n'];

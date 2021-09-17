@@ -1,0 +1,1 @@
+final List<dynamic> styles = ['body._ngcontent-%ID%,.cover._ngcontent-%ID%{background-color:#57bb8a}'];

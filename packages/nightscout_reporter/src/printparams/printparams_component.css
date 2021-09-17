@@ -1,0 +1,274 @@
+body {
+  --primaryBack: #055524;
+  --primaryFore: white;
+  --secondaryBack: #57bb8a;
+  --secondaryFore: black;
+  --debugFirst: #220;
+  --debugSecond: #550;
+  --debugFore: #ffeb3b;
+  --settingsHeaderBack: #006064;
+  --settingsHeaderFore: #b2ebf2;
+  --settingsBodyBack: #4dd0e1;
+  --settingsBodyFore: black;
+  --settingsScrollThumb: #0097a7;
+  --legalHeaderBack: #e65100;
+  --legalHeaderFore: #ffe0b2;
+  --legalBodyBack: #ffb74d;
+  --legalBodyFore: black;
+  --legalScrollThumb: #f57c00;
+  --whatsnewHeaderBack: blue900;
+  --whatsnewHeaderFore: blue100;
+  --whatsnewBodyBack: blue500;
+  --whatsnewBodyFore: black;
+  --whatsnewScrollThumb: blue700;
+  --localFore: purple500;
+  --localBack: purple100;
+  --betaFore: green800;
+  --betaBack: transparent;
+  --pdfBtnBack: red400;
+  --pdfBtnFore: rgba(255, 255, 255, 0.8);
+  --pdfInfoFore: rgba(0, 0, 0, 0.7);
+  --sendMarked: lightBlue800;
+  --googleSignedout: red400;
+  --loopMarked: #a0a0ff;
+  --printparamsHeaderBack: #b71c1c;
+  --printparamsHeaderFore: #ffcdd2;
+  --printparamsBodyBack: #e57373;
+  --printparamsBodyFore: black;
+  --printparamsScrollThumb: #d32f2f;
+  --shortcutHeaderBack: #afb42b;
+  --shortcutHeaderFore: #afb42b;
+  --shortcutBodyBack: #afb42b;
+  --shortcutBodyFore: #afb42b;
+  --shortcutScrollThumb: #ff0000;
+}
+
+.betaBox {
+  box-shadow: 0 0 10px 3px #00ffff;
+}
+
+.betaText {
+  animation: glowing 1s linear infinite alternate;
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 0px;
+  }
+  100% {
+    text-shadow: 0 0 30px;
+  }
+}
+.iconButton material-icon,
+.iconButton img {
+  margin-right: 1em;
+}
+
+.imageButton img {
+  height: 16px;
+  margin-right: 1em;
+}
+
+.controls {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+.controls .label {
+  padding-right: 2em;
+}
+.controls material-fab:not([disabled]) {
+  background-color: var(--printparamsHeaderBack);
+  color: var(--primaryFore);
+}
+
+.functions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.functions > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.functions > div div:first-child {
+  margin-left: 10px;
+}
+.functions > div div {
+  padding-right: 1em;
+}
+
+material-dialog[main] {
+  min-width: 80%;
+}
+material-dialog[main] ::ng-deep main::-webkit-scrollbar {
+  width: 16px;
+}
+material-dialog[main] ::ng-deep main::-webkit-scrollbar-track {
+  background-color: var(--printparamsBodyBack);
+}
+material-dialog[main] ::ng-deep main::-webkit-scrollbar-thumb {
+  background-color: var(--printparamsScrollThumb);
+}
+material-dialog[main] ::ng-deep main {
+  scrollbar-color: var(--printparamsScrollThumb) var(--printparamsBodyBack);
+}
+material-dialog[main] ::ng-deep .wrapper > header {
+  /*! @noflip */
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+material-dialog[main] ::ng-deep .wrapper > main, material-dialog[main][headered] ::ng-deep .wrapper > main {
+  padding: 0;
+}
+
+material-dialog.headered-dialog ::ng-deep .wrapper > header, material-dialog.headered-dialog[headered] ::ng-deep .wrapper > header {
+  background-color: var(--printparamsHeaderBack);
+}
+material-dialog.headered-dialog ::ng-deep .wrapper > footer, material-dialog.headered-dialog[headered] ::ng-deep .wrapper > footer {
+  background-color: var(--printparamsHeaderBack);
+  color: var(--printparamsHeaderFore);
+  padding: 0;
+}
+material-dialog.headered-dialog[headered] ::ng-deep .wrapper ::ng-deep h1 {
+  background-color: var(--printparamsHeaderBack);
+  color: var(--printparamsHeaderFore);
+}
+
+.root {
+  padding: 1em;
+  font-size: 1.2em;
+  color: var(--printparamsBodyFore);
+  background-color: var(--printparamsBodyBack);
+}
+
+.languagePanel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.subtitle {
+  display: flex;
+  flex-direction: row;
+  color: var(--printparamsHeaderBack);
+  font-size: 1.5em;
+  padding-bottom: 0.5em;
+  align-items: center;
+  justify-content: space-between;
+}
+.subtitle ::ng-deep div {
+  display: flex;
+}
+.subtitle ::ng-deep .comparable {
+  flex: 1;
+  font-size: 0.7em;
+  justify-content: flex-end;
+}
+.subtitle ::ng-deep .comparable ::ng-deep material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-bar {
+  background-color: var(--printparamsHeaderBack);
+}
+.subtitle ::ng-deep .comparable ::ng-deep material-toggle.themeable .material-toggle.checked:not(.disabled) .tgl-btn {
+  background-color: var(--printparamsHeaderBack);
+}
+.subtitle ::ng-deep .comparable ::ng-deep material-toggle.themeable .tgl-btn-underlay.under-focus else {
+  background-color: rgba(188, 188, 188, 0.24);
+}
+.subtitle ::ng-deep .comparable ::ng-deep material-toggle.themeable .tgl-btn-underlay.under-focus.under-checked {
+  background-color: rgba(var(--printparamsHeaderBack), 0.24);
+}
+
+div[header] {
+  display: flex;
+  flex-direction: row;
+  color: var(--printparamsHeaderFore);
+  justify-content: space-between;
+  align-items: center;
+}
+div[header] div:nth-child(2) {
+  display: flex;
+  align-items: center;
+}
+
+div[footer] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+}
+
+.progress {
+  padding: 2em;
+  font-size: 1.2em;
+}
+
+material-input ::ng-deep .focused-underline {
+  background: var(--printparamsHeaderBack);
+}
+material-input ::ng-deep .focused.label-text {
+  color: var(--printparamsHeaderBack);
+}
+
+.timeshift div {
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+}
+
+::ng-deep material-checkbox.pp:not(.disabled) .icon-container .icon.filled {
+  color: var(--printparamsHeaderBack);
+}
+
+.indent {
+  margin-left: 2em;
+}
+
+.selectButton {
+  background: var(--printparamsHeaderBack);
+  color: var(--printparamsHeaderFore);
+  padding: 0.2em;
+  padding-left: 0.4em;
+  border-radius: 2px;
+}
+
+.selectSelect ::ng-deep material-select-item.selected {
+  color: var(--printparamsBodyFore);
+}
+.selectSelect ::ng-deep material-select-item:not(.multiselect).selected {
+  background: var(--printparamsBodyBack);
+}
+.selectSelect ::ng-deep material-list {
+  background-color: var(--printparamsHeaderBack);
+  padding: 0;
+}
+.selectSelect ::ng-deep material-list material-select-item {
+  display: flex;
+  flex-direction: column;
+  line-height: initial;
+  align-items: flex-start;
+  padding: 0.2em 0.5em;
+  color: var(--printparamsHeaderFore);
+}
+.selectSelect ::ng-deep material-list material-select-item div.itemSub {
+  font-size: 75%;
+}
+.selectSelect ::ng-deep material-list material-select-item .selected-accent {
+  background-color: var(--printparamsBodyBack);
+  color: var(--printparamsBodyFore);
+}
+.selectSelect ::ng-deep material-list material-select-item:hover {
+  background-color: var(--printparamsBodyBack);
+}
+
+material-button[raised] {
+  background-color: var(--printparamsHeaderBack);
+  color: var(--printparamsHeaderFore);
+}
+
+.loop ::ng-deep .icon {
+  border-radius: 50%;
+  border: 2px solid var(--loopMarked);
+  background-color: var(--loopMarked);
+}
+
+material-dropdown-select {
+  margin-bottom: 0.2em;
+}

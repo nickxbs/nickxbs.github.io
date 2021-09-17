@@ -1,0 +1,75 @@
+@import '../../colors.sass';
+@import '../../base';
+@import 'package:angular_components/material_checkbox/mixins';
+@import 'package:angular_components/material_select/mixins';
+@import 'package:angular_components/material_slider/mixins';
+@import 'package:angular_components/material_input/mixins';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  @include material-checkbox-color(var(--primaryBack), $modifier: '');
+  @include slider-thumb-color('material-slider.slider', $primary_back);
+  @include slider-track-color('material-slider.slider', $primary_back, $mat-gray-400);
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--secondaryBack);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--primaryBack);
+  }
+}
+
+.paramList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  material-dropdown-select {
+    margin-left: 1em;
+    background: var(--primaryBack);
+    color: var(--primaryFore);
+
+    ::ng-deep .button {
+      padding: 0.5em;
+    }
+  }
+}
+
+.paramSelect {
+  ::ng-deep material-list {
+    background: var(--secondaryBack);
+  }
+}
+
+.paramSlider {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  material-slider {
+    margin-left: 1em;
+    width: 80%;
+  }
+}
+
+material-checkbox {
+  margin: 0;
+  align-items: flex-start;
+}
+
+.subParams {
+  margin-left: 1.5em;
+}
+
+.loop {
+  ::ng-deep .icon {
+    border-radius: 50%;
+    border: 2px solid var(--loopMarked);
+    background-color: var(--loopMarked);
+  }
+}
+

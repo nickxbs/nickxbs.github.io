@@ -1,0 +1,161 @@
+body {
+  --primaryBack: #055524;
+  --primaryFore: white;
+  --secondaryBack: #57bb8a;
+  --secondaryFore: black;
+  --debugFirst: #220;
+  --debugSecond: #550;
+  --debugFore: #ffeb3b;
+  --settingsHeaderBack: #006064;
+  --settingsHeaderFore: #b2ebf2;
+  --settingsBodyBack: #4dd0e1;
+  --settingsBodyFore: black;
+  --settingsScrollThumb: #0097a7;
+  --legalHeaderBack: #e65100;
+  --legalHeaderFore: #ffe0b2;
+  --legalBodyBack: #ffb74d;
+  --legalBodyFore: black;
+  --legalScrollThumb: #f57c00;
+  --whatsnewHeaderBack: blue900;
+  --whatsnewHeaderFore: blue100;
+  --whatsnewBodyBack: blue500;
+  --whatsnewBodyFore: black;
+  --whatsnewScrollThumb: blue700;
+  --localFore: purple500;
+  --localBack: purple100;
+  --betaFore: green800;
+  --betaBack: transparent;
+  --pdfBtnBack: red400;
+  --pdfBtnFore: rgba(255, 255, 255, 0.8);
+  --pdfInfoFore: rgba(0, 0, 0, 0.7);
+  --sendMarked: lightBlue800;
+  --googleSignedout: red400;
+  --loopMarked: #a0a0ff;
+  --printparamsHeaderBack: #b71c1c;
+  --printparamsHeaderFore: #ffcdd2;
+  --printparamsBodyBack: #e57373;
+  --printparamsBodyFore: black;
+  --printparamsScrollThumb: #d32f2f;
+  --shortcutHeaderBack: #afb42b;
+  --shortcutHeaderFore: #afb42b;
+  --shortcutBodyBack: #afb42b;
+  --shortcutBodyFore: #afb42b;
+  --shortcutScrollThumb: #ff0000;
+}
+
+.betaBox {
+  box-shadow: 0 0 10px 3px #00ffff;
+}
+
+.betaText {
+  animation: glowing 1s linear infinite alternate;
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 0px;
+  }
+  100% {
+    text-shadow: 0 0 30px;
+  }
+}
+.iconButton material-icon,
+.iconButton img {
+  margin-right: 1em;
+}
+
+.imageButton img {
+  height: 16px;
+  margin-right: 1em;
+}
+
+:host ::-webkit-scrollbar {
+  width: auto;
+}
+:host ::ng-deep main::-webkit-scrollbar {
+  width: 16px;
+}
+:host ::ng-deep main::-webkit-scrollbar-track {
+  background-color: var(--secondaryBack);
+}
+:host ::ng-deep main::-webkit-scrollbar-thumb {
+  background-color: var(--primaryBack);
+}
+:host ::ng-deep main {
+  scrollbar-color: var(--primaryBack) var(--secondaryBack);
+}
+
+material-dialog ::ng-deep .wrapper > header, material-dialog[headered] ::ng-deep .wrapper > header {
+  background-color: var(--primaryBack);
+}
+material-dialog ::ng-deep .wrapper > header {
+  /*! @noflip */
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+material-dialog ::ng-deep .wrapper > main, material-dialog[headered] ::ng-deep .wrapper > main {
+  padding: 0;
+}
+
+div[header] {
+  display: flex;
+  flex-direction: row;
+  color: var(--primaryFore);
+  justify-content: space-between;
+  align-items: center;
+}
+div[header] > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+div[header] > div .langPanel {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 33em) {
+  div[header] {
+    flex-direction: column !important;
+  }
+}
+.root {
+  padding: 1em;
+  font-size: 1.2em;
+  background-color: var(--secondaryBack);
+}
+
+h1 {
+  margin-top: 0em;
+  margin-bottom: 0.5em;
+}
+
+.root > div {
+  text-align: justify;
+  padding-top: 1em;
+}
+
+a, a:visited, a:active {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--primaryBack);
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
